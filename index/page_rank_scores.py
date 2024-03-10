@@ -14,7 +14,7 @@ class PageRankScores:
                 doc_id = int(row["doc_id"])
                 score = float(row["score"])
                 self.pageRankScores[doc_id] = score
-                if score < 1.0:
+                if score < 15.0:
                     break
         print("Page Rank Scores loaded")
 
