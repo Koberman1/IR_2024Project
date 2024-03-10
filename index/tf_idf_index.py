@@ -31,11 +31,11 @@ class TfIdfIndex:
 
     def __init__(self, bucket_name: Optional[str] = None):
         self.bucket_name = bucket_name
-        self.tmp_dir = Path("../db/tmp")
+        self.tmp_dir = Path("db/tmp")
         self.tmp_dir.mkdir(parents=True, exist_ok=True)
-        self.index_dir = Path("../db/tf_idf/index")
+        self.index_dir = Path("db/tf_idf/index")
         self.index_dir.mkdir(parents=True, exist_ok=True)
-        self.data_dir = Path("../db/tf_idf/data")
+        self.data_dir = Path("db/tf_idf/data")
         self.data_dir.mkdir(parents=True, exist_ok=True)
 
         self.index = [(0, None) for _ in range(_NUM_BUCKETS)]

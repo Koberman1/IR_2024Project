@@ -15,7 +15,7 @@ def _extract_tokens(record: Dict) -> Set[str]:
 class TokenIndexer:
 
     def __init__(self):
-        self.conn = sqlite3.connect('../db/token_index.db')
+        self.conn = sqlite3.connect('db/token_index.db')
         self.cursor = self.conn.cursor()
         self.cursor.execute(
             """CREATE TABLE IF NOT EXISTS token_index (

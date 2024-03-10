@@ -10,7 +10,7 @@ class TitleIndex:
 
     def __init__(self, bucket_name: Optional[str] = None):
         self.bucket_name = bucket_name
-        self.title_index_file = Path("../db/titles.index")
+        self.title_index_file = Path("db/titles.index")
         self.titles = dict()
         bucket = None if self.bucket_name is None else get_bucket(self.bucket_name)
         with _open(str(self.title_index_file.absolute()), 'rb', bucket) as f:

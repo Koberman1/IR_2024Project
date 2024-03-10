@@ -27,8 +27,8 @@ class QueryEngine:
 
         combined = [(doc_id, sum(x) * len(x) / len(token_indices)) for doc_id, x in scores.items()]
         sorted_scores = sorted(combined, key=lambda x: x[1], reverse=True)[:100]
-        return [(f"https://en.wikipedia.org/?curid={k}", self.title_index.title_of(k), str(v)) for k, v in sorted_scores]
-        # return [(self.title_index.title_of(k), str(v)) for k, v in sorted_scores]
+        # return [(f"https://en.wikipedia.org/?curid={k}", self.title_index.title_of(k), str(v)) for k, v in sorted_scores]
+        return [(str(wiki_id), self.title_index.title_of(wiki_id)) for wiki_id, v in sorted_scores]
 
 
 if __name__ == '__main__':

@@ -1,11 +1,16 @@
 from flask import Flask, request, jsonify
 
+from engine import QueryEngine
+
+
 class MyFlaskApp(Flask):
     def run(self, host=None, port=None, debug=None, **options):
         super(MyFlaskApp, self).run(host=host, port=port, debug=debug, **options)
 
+
 app = MyFlaskApp(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+engine = QueryEngine()
 
 
 @app.route("/search")
@@ -31,6 +36,7 @@ def search():
     if len(query) == 0:
       return jsonify(res)
     # BEGIN SOLUTION
+    res = engine.query(query)
 
     # END SOLUTION
     return jsonify(res)
