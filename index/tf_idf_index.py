@@ -30,6 +30,7 @@ def _process_record(record: Dict, indexer: TokenIndexer) -> Dict[int, float]:
 class TfIdfIndex:
 
     def __init__(self, bucket_name: Optional[str] = None):
+        print("Loading TfIdf indices...")
         self.bucket_name = bucket_name
         self.tmp_dir = Path("db/tmp")
         self.tmp_dir.mkdir(parents=True, exist_ok=True)
@@ -45,6 +46,7 @@ class TfIdfIndex:
             with _open(path, 'rb', bucket) as f:
                 data = pickle.load(f)
                 self.index[bucket_id] = {k: (v[0][2], [x[:2] for x in v]) for k, v in data.items()}
+        print("TfIdf indices loaded.")
 
     def values_of(self, token_id: int) -> List[Tuple[int, float]]:
         result = []
