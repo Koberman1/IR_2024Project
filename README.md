@@ -10,7 +10,7 @@ This Python project implements a search engine for Wikipedia, allowing users to 
 
    Example:
    ````
-   https://en.wikipedia.org/?curid=
+   https://en.wikipedia.org/?curid=3434750
    ````
 
 ## Installation
