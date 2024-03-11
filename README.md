@@ -47,9 +47,9 @@ This Python project implements a search engine for Wikipedia, allowing users to 
 
 The indexes of the Wikipedia dump were created offline using the following classes located in the `index` folder:
 
-- **`token_index.py`:** Creates and reads the tokens and creates an index identifier for each. The indexes are stored using SQLite embedded DB because it is based on B-tree which is efficient.
-- **`title_index.py`:** Creates and reads the page title indices (from their doc ID).
-- **`tf_idf_index.py`:** Creates and reads the TF-IDF indices of the tokens 
+- **`token_index.py`:** Creates and reads the tokens and creates an index identifier for each. The indexes are stored using SQLite embedded DB because it is based on B-tree which is efficient, and loaded to memory during the run.
+- **`title_index.py`:** Creates and reads the page title indices (from their doc ID), loaded into memory during runtime.
+- **`tf_idf_index.py`:** Creates and reads the TF-IDF indices of the tokens, loades the indices mapping during runtime and directs to the the data files when query arrives.
 - **`page_rank_scores.py`:** Reads a previously created Page Rank scores for the Wikipedia pages and provides information whether an article ID is on a high Page Rank score.
 
 After the indexes were generated, they uploaded into the Google Cloud Storage bucket: `gs://306-bucket`. 
