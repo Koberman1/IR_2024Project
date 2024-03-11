@@ -1,8 +1,9 @@
 import json
+
 import requests
 from time import time
 
-url = 'http://34.67.56.108:8080/'
+url = 'http://127.0.0.1:8080/'
 
 
 class Testing:
@@ -64,7 +65,7 @@ if __name__ == '__main__':
         duration, ap = None, None
         t_start = time()
         try:
-            res = requests.get(url + '/search', {'query': q}, timeout=35)
+            res = requests.get(url + '/search', {'query': q})
             duration = time() - t_start
             if res.status_code == 200:
                 pred_wids, _ = zip(*res.json())
